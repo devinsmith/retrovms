@@ -1,6 +1,6 @@
 #!/bin/sh
 qemu-system-i386 -m 128 \
-  -fda floppy22.fs \
+  -drive file=floppy22.fs,index=0,if=floppy,format=raw \
   -cdrom install22.iso \
   -hdd hdd.qcow2 \
   -vga cirrus \
