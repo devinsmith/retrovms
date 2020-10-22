@@ -7,3 +7,4 @@
 | 2.1     | i386    | Installable, but no ports tree |
 | 2.2     | i386    | Installable, no X              |
 | 2.3     | i386    | Installable                    |
+| 2.4     | i386    | Installable                    |
