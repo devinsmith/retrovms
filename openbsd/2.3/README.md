@@ -11,12 +11,17 @@ There is no DHCP so you need to manually configure it:
 | Gateway | 10.0.2.2  |
 | DNS     | 10.0.2.3  |
 
+# Configuration
+
+During installation, to use the entire disk, just simply type "reinit"
+
+When asked for the type of disk choose IDE (synonym for ESDI).
+
 # Components
 
 * GCC: 2.8.1
 * OpenSSH: not in base
-* httpd: based on Apache 1.3
-* XFree86: 3.3.1 - Note that cirrus vga card is not configured, so I did not
-                   run X11.
+* httpd: based on Apache 1.2
+* XFree86: 3.3.2 (seems to lack mouse support?)
 
 
