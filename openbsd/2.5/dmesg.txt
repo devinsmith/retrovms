@@ -1,0 +1,48 @@
+OpenBSD 2.5 (GENERIC) #243: Fri Apr 16 09:16:34 MDT 1999
+    deraadt@i386.openbsd.org:/usr/src/sys/arch/i386/compile/GENERIC
+cpu0: Intel Celeron ("GenuineIntel" 686-class) 3392 MHz
+cpu0: FPU,DE,PSE,TSC,MSR,PAE,MCE,CX8,APIC,SYS,PGE,CMOV,PAT,MMX,FXSR,SIMD
+BIOS mem  = 654336 conventional, 133038080 extended
+real mem  = 133693440
+avail mem = 121270272
+using 1657 buffers containing 6787072 bytes of memory
+mainbus0 (root)
+bios0 at mainbus0: AT/286+(6f) BIOS, date 06/23/99
+bios0: pciinfo 0xf049d00c apminfo 0xf049d028 diskinfo 0xf049d050 cksumlen 1 memmap 0xf049d0cc
+apm0 at bios0: Power Management spec V1.2
+apm0: AC on, no battery
+pci0 at mainbus0 bus 0: configuration mode 1 (bios)
+pchb0 at pci0 dev 0 function 0 "Intel 82441FX PCI/Memory (PMC)" rev 0x02
+pcib0 at pci0 dev 1 function 0 "Intel 82371SB (Triton II) PCI-ISA" rev 0x00
+"Intel 82371SB (Triton II) IDE" rev 0x00 at pci0 dev 1 function 1 not configured
+"Intel 82371AB Power Management (PIIX4)" rev 0x03 at pci0 dev 1 function 3 not configured
+"Cirrus Logic CL-GD5446" rev 0x00 at pci0 dev 2 function 0 not configured
+le1 at pci0 dev 3 function 0 "AMD 79c970 PCnet-PCI LANCE" rev 0x10
+le1: address 52:54:00:12:34:56
+le1: 8 receive buffers, 2 transmit buffers
+le1: interrupting at irq 11
+isa0 at mainbus0
+isadma0 at isa0
+wdc1 at isa0 port 0x170-0x177 irq 15
+atapibus0 at wdc1
+acd0 at atapibus0 drive 0: <QEMU DVD-ROM, QM00003, 2.5+> ATAPI 5/cdrom removable
+acd0: 687Kb/sec, 512Kb cache, audio play, 2 volume levels
+wd0 at wdc1 drive 1: <QEMU HARDDISK>
+wd0: 6144MB, 12483 cyl, 16 head, 63 sec, 512 bytes/sec, 12582912 sec total
+wd0: using 16-sector 16-bit pio transfers, lba addressing (256KB cache)
+pcppi0 at isa0 port 0x61
+midi0 at pcppi0: <PC speaker>
+sysbeep0 at pcppi0
+lpt0 at isa0 port 0x378-0x37b irq 7
+npx0 at isa0 port 0xf0-0xff: using exception 16
+pccom0 at isa0 port 0x3f8-0x3ff irq 4: ns16550a, 16 byte fifo
+vt0 at isa0 port 0x60-0x6f irq 1: unknown Cirrus, 80 col, color, 8 scr, mf2-kbd
+pms0 at vt0 irq 12
+fdc0 at isa0 port 0x3f0-0x3f5 irq 6 drq 2
+fd0 at fdc0 drive 1: density unknown
+biomask 8040 netmask 8840 ttymask 98c2
+root on wd0a
+pctr: 686-class user-level performance counters enabled
+dkcsum: wd0 matched BIOS disk 80
+rootdev=0x0 rrootdev=0x300 rawdev=0x302
+WARNING: / was not properly unmounted

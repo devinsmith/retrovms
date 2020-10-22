@@ -8,3 +8,4 @@
 | 2.2     | i386    | Installable, no X              |
 | 2.3     | i386    | Installable                    |
 | 2.4     | i386    | Installable                    |
+| 2.5     | i386    | Installable                    |
