@@ -9,3 +9,4 @@
 | 2.3     | i386    | Installable                    |
 | 2.4     | i386    | Installable                    |
 | 2.5     | i386    | Installable                    |
+| 2.6     | i386    | Installable                    |
