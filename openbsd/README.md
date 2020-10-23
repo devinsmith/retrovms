@@ -12,3 +12,4 @@
 | 2.6     | i386    | Installable                    |
 | 2.7     | i386    | Installable                    |
 | 2.8     | i386    | Installable                    |
+| 2.9     | i386    | Installable                    |

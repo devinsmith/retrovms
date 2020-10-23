@@ -1,0 +1,229 @@
+Section "Module"
+
+# This loads the DBE extension module.
+
+    Load        "dbe"  	# Double buffer extension
+
+# This loads the miscellaneous extensions module, and disables
+# initialisation of the XFree86-DGA extension within that module.
+    SubSection  "extmod"
+      Option    "omit xfree86-dga"   # don't initialise the DGA extension
+    EndSubSection
+
+# This loads the Type1 and FreeType font modules
+    Load        "type1"
+    Load        "freetype"
+
+# This loads the GLX module
+#    Load       "glx"
+
+EndSection
+
+# **********************************************************************
+# Files section.  This allows default font and rgb paths to be set
+# **********************************************************************
+
+Section "Files"
+
+# The location of the RGB database.  Note, this is the name of the
+# file minus the extension (like ".txt" or ".db").  There is normally
+# no need to change the default.
+
+    RgbPath	"/usr/X11R6/lib/X11/rgb"
+
+# Multiple FontPath entries are allowed (which are concatenated together),
+# as well as specifying multiple comma-separated entries in one FontPath
+# command (or a combination of both methods)
+# 
+# If you don't have a floating point coprocessor and emacs, Mosaic or other
+# programs take long to start up, try moving the Type1 and Speedo directory
+# to the end of this list (or comment them out).
+# 
+
+    FontPath   "/usr/X11R6/lib/X11/fonts/local/"
+    FontPath   "/usr/X11R6/lib/X11/fonts/misc/"
+    FontPath   "/usr/X11R6/lib/X11/fonts/75dpi/:unscaled"
+    FontPath   "/usr/X11R6/lib/X11/fonts/100dpi/:unscaled"
+    FontPath   "/usr/X11R6/lib/X11/fonts/Type1/"
+    FontPath   "/usr/X11R6/lib/X11/fonts/Speedo/"
+    FontPath   "/usr/X11R6/lib/X11/fonts/75dpi/"
+    FontPath   "/usr/X11R6/lib/X11/fonts/100dpi/"
+
+# The module search path.  The default path is shown here.
+
+#    ModulePath "/usr/X11R6/lib/modules"
+
+EndSection
+
+# **********************************************************************
+# Server flags section.
+# **********************************************************************
+
+Section "ServerFlags"
+EndSection
+
+# **********************************************************************
+# Input devices
+# **********************************************************************
+
+# **********************************************************************
+# Core keyboard's InputDevice section
+# **********************************************************************
+
+Section "InputDevice"
+
+    Identifier	"Keyboard1"
+    Driver	"Keyboard"
+# For most OSs the protocol can be omitted (it defaults to "Standard").
+# When using XQUEUE (only for SVR3 and SVR4, but not Solaris),
+# uncomment the following line.
+
+#    Option     "Protocol"      "Xqueue"
+
+    Option "AutoRepeat" "500 30"
+
+# Specify which keyboard LEDs can be user-controlled (eg, with xset(1))
+#    Option	"Xleds"      "1 2 3"
+
+#    Option "LeftAlt"     "Meta"
+#    Option "RightAlt"    "ModeShift"
+
+# To customise the XKB settings to suit your keyboard, modify the
+# lines below (which are the defaults).  For example, for a non-U.S.
+# keyboard, you will probably want to use:
+#    Option "XkbModel"    "pc102"
+# If you have a US Microsoft Natural keyboard, you can use:
+#    Option "XkbModel"    "microsoft"
+#
+# Then to change the language, change the Layout setting.
+# For example, a german layout can be obtained with:
+#    Option "XkbLayout"   "de"
+# or:
+#    Option "XkbLayout"   "de"
+#    Option "XkbVariant"  "nodeadkeys"
+#
+# If you'd like to switch the positions of your capslock and
+# control keys, use:
+#    Option "XkbOptions"  "ctrl:swapcaps"
+
+# These are the default XKB settings for XFree86
+#    Option "XkbRules"    "xfree86"
+#    Option "XkbModel"    "pc101"
+#    Option "XkbLayout"   "us"
+#    Option "XkbVariant"  ""
+#    Option "XkbOptions"  ""
+
+#    Option "XkbDisable"
+
+    Option "XkbRules"	"xfree86"
+    Option "XkbModel"	"pc101"
+    Option "XkbLayout"	"us"
+
+EndSection
+
+
+# **********************************************************************
+# Core Pointer's InputDevice section
+# **********************************************************************
+
+Section "InputDevice"
+
+# Identifier and driver
+
+    Identifier	"Mouse1"
+    Driver	"mouse"
+    Option "Protocol"    "wsmouse"
+    Option "Device"      "/dev/wsmouse"
+
+EndSection
+
+
+# **********************************************************************
+# Monitor section
+# **********************************************************************
+
+# Any number of monitor sections may be present
+
+Section "Monitor"
+
+    Identifier  "QEMU Monitor"
+    HorizSync   31.5 - 64.3
+    VertRefresh 50-90
+
+EndSection
+
+
+# **********************************************************************
+# Graphics device section
+# **********************************************************************
+
+# Any number of graphics device sections may be present
+
+Section "Device"
+    Identifier  "Cirrus"
+    Driver      "cirrus"
+    #VideoRam    4096
+# Use Option "no_bitblt" if you have graphics problems. If that fails
+# try Option "noaccel".
+# Refer to /usr/X11R6/lib/doc/README.cirrus.
+# To allow linear addressing, uncomment the Option line and the
+# address that the card maps the framebuffer to.
+    # Insert Clocks lines here if appropriate
+EndSection
+
+
+# **********************************************************************
+# Screen sections
+# **********************************************************************
+
+# Any number of screen sections may be present.  Each describes
+# the configuration of a single screen.  A single specific screen section
+# may be specified from the X server command line with the "-screen"
+# option.
+Section "Screen"
+    Identifier  "Screen 1"
+    Device      "Cirrus"
+    Monitor     "QEMU Monitor"
+    DefaultDepth 16
+
+    Subsection "Display"
+        Depth       16
+        Modes       "1024x768"
+        ViewPort    0 0
+    EndSubsection
+EndSection
+
+# **********************************************************************
+# ServerLayout sections.
+# **********************************************************************
+
+# Any number of ServerLayout sections may be present.  Each describes
+# the way multiple screens are organised.  A specific ServerLayout
+# section may be specified from the X server command line with the
+# "-layout" option.  In the absence of this, the first section is used.
+# When now ServerLayout section is present, the first Screen section
+# is used alone.
+
+Section "ServerLayout"
+
+# The Identifier line must be present
+    Identifier  "Simple Layout"
+
+# Each Screen line specifies a Screen section name, and optionally
+# the relative position of other screens.  The four names after
+# primary screen name are the screens to the top, bottom, left and right
+# of the primary screen.  In this example, screen 2 is located to the
+# right of screen 1.
+
+    Screen "Screen 1"
+
+# Each InputDevice line specifies an InputDevice section name and
+# optionally some options to specify the way the device is to be
+# used.  Those options include "CorePointer", "CoreKeyboard" and
+# "SendCoreEvents".
+
+    InputDevice "Mouse1" "CorePointer"
+    InputDevice "Keyboard1" "CoreKeyboard"
+
+EndSection
+
