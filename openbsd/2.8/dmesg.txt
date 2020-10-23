@@ -1,0 +1,54 @@
+OpenBSD 2.8 (GENERIC) #399: Mon Nov  6 10:59:23 MST 2000
+    deraadt@i386.openbsd.org:/usr/src/sys/arch/i386/compile/GENERIC
+cpu0: Intel Pentium II (Celeron) ("GenuineIntel" 686-class) 3392 MHz
+cpu0: FPU,DE,PSE,TSC,MSR,PAE,MCE,CX8,APIC,SYS,PGE,CMOV,PAT,MMX,FXSR,SIMD
+real mem  = 267890688 (261612K)
+avail mem = 243388416 (237684K)
+using 3295 buffers containing 13496320 bytes (13180K) of memory
+mainbus0 (root)
+bios0 at mainbus0: AT/286+(a2) BIOS, date 06/23/99, BIOS32 rev. 0 @ 0xfd25e
+apm0 at bios0: Power Management spec V1.2
+apm0: AC on, battery charge unknown
+pcibios0 at bios0: rev. 2.1 found at 0xf0000[0x10000]
+pcibios0: PCI IRQ Routing Table rev. 1.0 found at 0xf5b80, size 128 bytes (6 entries)
+pcibios0: PCI Interrupt Router at 000:01:0 ("Intel 82371FB (Triton) PCI-ISA" rev 0x00)
+pcibios0: PCI bus #0 is the last bus
+pci0 at mainbus0 bus 0: configuration mode 1 (bios)
+pchb0 at pci0 dev 0 function 0 "Intel 82441FX" rev 0x02
+pcib0 at pci0 dev 1 function 0 "Intel 82371SB (Triton II) PCI-ISA" rev 0x00
+pciide0 at pci0 dev 1 function 1 "Intel 82371SB (Triton II) IDE" rev 0x00: DMA, channel 0 wired to compatibility, channel 1 wired to compatibility
+atapiscsi0 at pciide0 channel 1
+scsibus0 at atapiscsi0: 2 targets
+cd0 at scsibus0 targ 0 lun 0: <QEMU, QEMU DVD-ROM, 2.5+> SCSI0 5/cdrom removable
+cd0: can use 32-bit, PIO mode 4, DMA mode 2
+wd0 at pciide0 channel 1 drive 1: <QEMU HARDDISK>
+wd0: can use 32-bit, PIO mode 4, DMA mode 2
+wd0: 16-sector PIO, LBA, 6144MB, 12483 cyl, 16 head, 63 sec, 12582912 sectors
+pciide0: channel 1 interrupting at irq 15
+cd0(pciide0:1:0): using PIO mode 4, DMA mode 2 (using DMA data transfers)
+wd0(pciide0:1:1): using PIO mode 4, DMA mode 2 (using DMA data transfers)
+"Intel 82371AB Power Management (PIIX4)" rev 0x03 at pci0 dev 1 function 3 not configured
+"Cirrus Logic CL-GD5446" rev 0x00 at pci0 dev 2 function 0 not configured
+le1 at pci0 dev 3 function 0 "AMD 79c970 PCnet-PCI LANCE" rev 0x10
+le1: address 52:54:00:12:34:56
+le1: 8 receive buffers, 2 transmit buffers
+le1: interrupting at irq 11
+isa0 at pcib0
+isadma0 at isa0
+pcppi0 at isa0 port 0x61
+midi0 at pcppi0: <PC speaker>
+sysbeep0 at pcppi0
+lpt0 at isa0 port 0x378/4 irq 7
+npx0 at isa0 port 0xf0/16: using exception 16
+pccom0 at isa0 port 0x3f8/8 irq 4: ns16550a, 16 byte fifo
+vt0 at isa0 port 0x60/16 irq 1: vga 80 col, color, 8 scr, mf2-kbd
+pms0 at vt0 irq 12
+fdc0 at isa0 port 0x3f0/6 irq 6 drq 2
+fd0 at fdc0 drive 1: density unknown
+biomask 8040 netmask 8840 ttymask 98c2
+pctr: 686-class user-level performance counters enabled
+dkcsum: wd0 matched BIOS disk 80
+root on wd0a
+rootdev=0x0 rrootdev=0x300 rawdev=0x302
+WARNING: / was not properly unmounted
+clock: unknown CMOS layout
