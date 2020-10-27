@@ -14,6 +14,8 @@ There is no DHCP so you need to manually configure it:
 
 This is also the first version that seems to have a ports.tar.gz distribution.
 
+/bin/ksh does not support tab completion.
+
 # Configuration
 
 During installation, to use the entire disk, just simply type "reinit"
