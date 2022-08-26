@@ -24,4 +24,11 @@ When asked for the type of disk choose IDE (synonym for ESDI).
 * httpd: based on Apache 1.2
 * XFree86: 3.3.2 (seems to lack mouse support?)
 
+# Notable Ports
+
+Interesting ports in this release
+
+* lesstif 0.82
+* qt 1.31
+* no GTK+
 
