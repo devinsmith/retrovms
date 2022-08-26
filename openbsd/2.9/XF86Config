@@ -162,6 +162,7 @@ EndSection
 Section "Device"
     Identifier  "Cirrus"
     Driver      "cirrus"
+    Option      "noaccel"
     #VideoRam    4096
 # Use Option "no_bitblt" if you have graphics problems. If that fails
 # try Option "noaccel".
