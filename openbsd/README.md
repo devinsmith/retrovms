@@ -16,6 +16,7 @@
 | 3.0     | i386    | Installable, working X         |
 | 3.1     | i386    | Installable, working X         |
 | 3.2     | i386    | Installable, working X         |
+| 3.3     | i386    | Installable, working X         |
 
 # Challenges
 
