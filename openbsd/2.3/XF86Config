@@ -168,7 +168,7 @@ EndSection
 
 Section "Pointer"
     Protocol    "PS/2"
-    Device      "/dev/tty00"
+    Device      "/dev/psm0"
 
 # When using XQUEUE, comment out the above two lines, and uncomment
 # the following line.
