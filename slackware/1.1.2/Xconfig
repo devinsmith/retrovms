@@ -1,0 +1,14 @@
+Keyboard
+
+ps/2 "/dev/ps2aux"
+
+vga16
+  Virtual 640 480
+  ViewPort 0 0
+  Modes "640x480"
+  Clocks 41
+
+ModeDB
+#  name    clock    horizontal timing    vertical timing
+ "640x480"   41      640 656 680 792      480 480 481 500
+
